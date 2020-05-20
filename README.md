@@ -1,8 +1,8 @@
 # react-intercom-hook
 
 ![CI](https://github.com/vinyldarkscratch/react-intercom-hook/workflows/CI/badge.svg?branch=master)
-<img alt="version" src="https://img.shields.io/npm/v/react-intercom-hook.svg" />
-<img alt="minzipped size" src="https://badgen.net/bundlephobia/minzip/react-intercom-hook">
+![version](https://img.shields.io/npm/v/react-intercom-hook.svg)
+![minzipped size](https://badgen.net/bundlephobia/minzip/react-intercom-hook)
 
 A brand new hassle-free React [Intercom](https://www.intercom.com/) integration powered by hooks.
 
