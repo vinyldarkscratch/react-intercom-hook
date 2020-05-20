@@ -38,7 +38,11 @@ const RawUseIntercomPage = () => {
     trackEvent,
   } = useIntercom();
 
-  const handleBoot = React.useCallback(() => boot({ name: 'Russo' }), [boot]);
+  const handleBoot = React.useCallback(() => boot(), [boot]);
+
+  const handleBootWithProps = React.useCallback(() => boot({ name: 'Russo' }), [
+    boot,
+  ]);
 
   const handleUpdate = React.useCallback(() => {
     update({ name: 'ponas' });
@@ -75,13 +79,17 @@ const RawUseIntercomPage = () => {
           boots the Intercom instance, not needed if <code>autoBoot</code> in{' '}
           <code>IntercomProvider</code> is <code>true</code>
         </p>
-        <Button label="Boot" data-cy="boot" onClick={boot} />
+        <Button label="Boot" data-cy="boot" onClick={handleBoot} />
       </Item>
       <Item>
         <p>
           boots the Intercom instance with given <code>props</code>
         </p>
-        <Button label="Boot props" data-cy="boot-seeded" onClick={handleBoot} />
+        <Button
+          label="Boot props"
+          data-cy="boot-seeded"
+          onClick={handleBootWithProps}
+        />
       </Item>
       <Item>
         <p>shuts down the Intercom instance</p>
