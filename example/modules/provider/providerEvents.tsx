@@ -43,16 +43,16 @@ const RawProviderEvents = ({
       <Grid>
         <Item>
           <p>Just boot the Intercom</p>
-          <Button label="Boot" data-cy="boot" onClick={boot} />
+          <Button label="Boot" data-cy="boot" onClick={() => boot()} />
         </Item>
         <Item>
           <p>click should update the `onShow` text</p>
-          <Button label="Show" data-cy="show" onClick={show} />
+          <Button label="Show" data-cy="show" onClick={() => show()} />
         </Item>
 
         <Item>
           <p>click should update the `onHide` text</p>
-          <Button label="Hide" data-cy="hide" onClick={hide} />
+          <Button label="Hide" data-cy="hide" onClick={() => hide()} />
         </Item>
       </Grid>
     </>
