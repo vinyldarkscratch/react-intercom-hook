@@ -19,6 +19,9 @@ export const log = (level: LogLevel, message: string) => {
     case 'error':
       console.error(`${packageName} ${message}`);
       break;
+    case 'critical':
+      throw message;
+      break;
     default:
       console.log(`${packageName} ${message}`);
   }
