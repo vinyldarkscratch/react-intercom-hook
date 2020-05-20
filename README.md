@@ -4,13 +4,27 @@
 <img alt="version" src="https://img.shields.io/npm/v/react-intercom-hook.svg" />
 <img alt="minzipped size" src="https://badgen.net/bundlephobia/minzip/react-intercom-hook">
 
-A React [Intercom](https://www.intercom.com/) integration focused on developer experience.
+A brand new React [Intercom](https://www.intercom.com/) integration powered by hooks.
+
+## Copyright/Variations
+
+This package was forked from [devrnt](https://github.com/devrnt)'s [react-use-intercom](https://github.com/devrnt/react-use-intercom). One of the key differences between this package and the original is snake casing vs. camel casing of Intercom props.
+
+In `react-use-intercom`, all of Intercom's non-custom variables are expected to be passed in as camel-cased format. However, as Intercom expects snake-casing instead (and due to the lack of documentation indicating the camel-casing requirement), this led to various issues caused by the mapping between the two casing styles, namely disallowing snake-casing entirely and removing custom variables. Due to the lack of maintainer support, I decided to fork it as a new package.
 
 ## Features
-* Hooks
-* Written in TypeScript
-* Documented, self explaining methods 
-* [Tiny size](https://bundlephobia.com/result?p=react-use-intercom@latest) without any external libraries
+
+- Built for the latest React
+- Written in TypeScript
+- React hooks
+- Documented, self explaining methods
+- Written without external libraries
+- [Tiny size](https://bundlephobia.com/result?p=react-intercom-hooks@latest)
+
+## Requirements
+
+- NodeJS >=10
+- React >=16
 
 ## Installation
 
@@ -50,23 +64,27 @@ const HomePage = () => {
 - [Advanced](#advanced)
 
 ## API
-* [IntercomProvider](#intercomprovider)
-* [useIntercom](#useintercom)
 
-### IntercomProvider 
+- [IntercomProvider](#intercomprovider)
+- [useIntercom](#useintercom)
+
+### IntercomProvider
+
 `IntercomProvider` is used to initialize the `window.Intercom` instance. It makes sure the initialization is only done once. If any listeners are passed, the `IntercomProvider` will make sure these are attached.
 
 #### Props
-| name                | type             | description                                                                             | required | default |
-|---------------------|------------------|-----------------------------------------------------------------------------------------|----------|---------|
-| appId               | string           | app ID of your Intercom instance                                                        | true     |         |
-| children            | React.ReactNode  | React children                                                                          | true     |         |
-| autoBoot            | boolean          | indicates if Intercom should be automatically booted. If `true` no need to call `boot`, the `IntercomProvider` will call it for you  | false    |   false |
-| onHide              | () => void       | triggered when the Messenger hides                                                      | false    |         |
-| onShow              | () => void       | triggered when the Messenger shows                                                      | false    |         |
-| onUnreadCountChange | (number) => void | triggered when the current number of unread messages changes                            | false    |         |
+
+| name                | type             | description                                                                                                                         | required | default |
+| ------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| appId               | string           | app ID of your Intercom instance                                                                                                    | true     |         |
+| children            | React.ReactNode  | React children                                                                                                                      | true     |         |
+| autoBoot            | boolean          | indicates if Intercom should be automatically booted. If `true` no need to call `boot`, the `IntercomProvider` will call it for you | false    | false   |
+| onHide              | () => void       | triggered when the Messenger hides                                                                                                  | false    |         |
+| onShow              | () => void       | triggered when the Messenger shows                                                                                                  | false    |         |
+| onUnreadCountChange | (number) => void | triggered when the current number of unread messages changes                                                                        | false    |         |
 
 #### Example
+
 ```javascript
 const App = () => {
   const [unreadMessagesCount, unreadMessagesCount] = React.useState(0);
@@ -94,15 +112,17 @@ const App = () => {
 ```
 
 ### useIntercom
+
 Used to retrieve all methods bundled with Intercom. These are based on the official [Intercom docs](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects). Some extra methods were added to improve convenience.
 
 **Remark** - make sure `IntercomProvider` is wrapped around your component when calling `useIntercom()`
 
 #### Methods
+
 | name            | type                                       | description                                                                                                                         |
-|-----------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| --------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | boot            | (props?: IntercomProps) => void            | boots the Intercom instance, not needed if `autoBoot` in `IntercomProvider` is `true`                                               |
-| shutdown        | () => void                                 | shuts down the Intercom instance                                                                                                     |
+| shutdown        | () => void                                 | shuts down the Intercom instance                                                                                                    |
 | hardShutdown    | () => void                                 | same functionality as `shutdown`, but makes sure the Intercom cookies, `window.Intercom` and `window.intercomSettings` are removed. |
 | update          | (props?: IntercomProps) => void            | updates the Intercom instance with the supplied props. To initiate a 'ping', call `update` without props                            |
 | hide            | () => void                                 | hides the Messenger, will call `onHide` if supplied to `IntercomProvider`                                                           |
@@ -111,9 +131,10 @@ Used to retrieve all methods bundled with Intercom. These are based on the offic
 | showNewMessages | (content?: string) => void                 | shows the Messenger as if a new conversation was just created. If `content` is passed, it will fill in the message composer         |
 | getVisitorId    | () => string                               | gets the visitor id                                                                                                                 |
 | startTour       | (tourId: number) => void                   | starts a tour based on the `tourId`                                                                                                 |
-| trackEvent      | (event: string, metaData?: object) => void | submits an `event` with optional `metaData`      
+| trackEvent      | (event: string, metaData?: object) => void | submits an `event` with optional `metaData`                                                                                         |
 
 #### Example
+
 ```javascript
 import * as React from 'react';
 
@@ -143,7 +164,8 @@ const HomePage = () => {
   } = useIntercom();
 
   const bootWithProps = () => boot({ name: 'Russo' });
-  const updateWithProps = () => update({ name: 'Ossur' });
+  const updateWithProps = () =>
+    update({ name: 'Ossur', language_override: 'en' });
   const handleNewMessages = () => showNewMessages();
   const handleNewMessagesWithContent = () => showNewMessages('content');
   const handleGetVisitorId = () => console.log(getVisitorId());
@@ -178,20 +200,17 @@ const HomePage = () => {
     </>
   );
 };
-``` 
+```
 
 ## Playground
-Example playground to showcase the functionalities of `react-use-intercom`. 
 
-### useIntercom
-[https://devrnt.github.io/react-use-intercom/#/useIntercom](https://devrnt.github.io/react-use-intercom/#/useIntercom)
+Example playground to showcase the functionalities of `react-intercom-hook`.
 
-### useIntercom (with Intercom tour)
-[https://devrnt.github.io/react-use-intercom/#/useIntercomTour](https://devrnt.github.io/react-use-intercom/#/useIntercomTour)
-
-
+[useIntercom](https://vinyldarkscratch.github.io/react-intercom-hook/#/useIntercom)
+[useIntercom (with Intercom tour)](https://vinyldarkscratch.github.io/react-intercom-hook/#/useIntercomTour)
 
 ## Advanced
+
 To reduce the amount of re-renders in your React application I suggest to make use of [`useCallback`](https://reactjs.org/docs/hooks-reference.html#usecallback)
 
 **TLDR:** `useCallback` will return a memoized version of the callback that only changes if one of the dependencies has changed.
@@ -199,6 +218,7 @@ To reduce the amount of re-renders in your React application I suggest to make u
 This can be applied to both the `IntercomProvider` events and the `useIntercom` methods. It depends on how many times your main app gets re-rendered.
 
 ### Example
+
 ```javascript
 import * as React from 'react';
 
@@ -224,7 +244,9 @@ const HomePage = () => {
   const { boot } = useIntercom();
 
   // const bootWithProps = () => boot({ name: 'Russo' });
-  const bootWithProps = React.useCallback(() => boot({ name: 'Russo' }), [boot]);
+  const bootWithProps = React.useCallback(() => boot({ name: 'Russo' }), [
+    boot,
+  ]);
 
   return <button onClick={bootWithProps}>Boot with props</button>;
 };
