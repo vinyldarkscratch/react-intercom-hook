@@ -7,7 +7,7 @@ import { LogLevel } from './types';
  * @param message the message to log in the console
  */
 export const log = (level: LogLevel, message: string) => {
-  const packageName = '[react-use-intercom]';
+  const packageName = '[react-intercom-hook]';
 
   switch (level) {
     case 'info':

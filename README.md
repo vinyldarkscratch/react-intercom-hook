@@ -1,8 +1,8 @@
-# react-use-intercom
+# react-intercom-hook
 
-![CI](https://github.com/devrnt/react-use-intercom/workflows/CI/badge.svg?branch=master)
-<img alt="version" src="https://img.shields.io/npm/v/react-use-intercom.svg" />
-<img alt="minzipped size" src="https://badgen.net/bundlephobia/minzip/react-use-intercom">
+![CI](https://github.com/vinyldarkscratch/react-intercom-hook/workflows/CI/badge.svg?branch=master)
+<img alt="version" src="https://img.shields.io/npm/v/react-intercom-hook.svg" />
+<img alt="minzipped size" src="https://badgen.net/bundlephobia/minzip/react-intercom-hook">
 
 A React [Intercom](https://www.intercom.com/) integration focused on developer experience.
 
@@ -15,7 +15,9 @@ A React [Intercom](https://www.intercom.com/) integration focused on developer e
 ## Installation
 
 ```
-yarn add react-use-intercom
+npm i react-intercom-hook
+OR
+yarn add react-intercom-hook
 ```
 
 ## Quickstart
@@ -23,7 +25,7 @@ yarn add react-use-intercom
 ```js
 import * as React from 'react';
 
-import { IntercomProvider, useIntercom } from 'react-use-intercom';
+import { IntercomProvider, useIntercom } from 'react-intercom-hook';
 
 const INTERCOM_APP_ID = 'your-intercom-app-id';
 
@@ -115,7 +117,7 @@ Used to retrieve all methods bundled with Intercom. These are based on the offic
 ```javascript
 import * as React from 'react';
 
-import { IntercomProvider, useIntercom } from 'react-use-intercom';
+import { IntercomProvider, useIntercom } from 'react-intercom-hook';
 
 const INTERCOM_APP_ID = 'your-intercom-app-id';
 
@@ -200,7 +202,7 @@ This can be applied to both the `IntercomProvider` events and the `useIntercom` 
 ```javascript
 import * as React from 'react';
 
-import { IntercomProvider, useIntercom } from 'react-use-intercom';
+import { IntercomProvider, useIntercom } from 'react-intercom-hook';
 
 const INTERCOM_APP_ID = 'your-intercom-app-id';
 

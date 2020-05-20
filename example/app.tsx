@@ -37,7 +37,7 @@ const App = () => {
     <>
       <Style />
       <Page
-        title="react-use-intercom"
+        title="react-intercom-hook"
         description="Example playground to showcase the functionalities of this package"
       >
         <Router>

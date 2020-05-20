@@ -1,19 +1,19 @@
 {
-  "name": "react-use-intercom",
-  "author": "devrnt",
-  "module": "dist/react-use-intercom.esm.js",
+  "name": "react-intercom-hook",
+  "author": "vinyldarkscratch",
+  "module": "dist/react-intercom-hook.esm.js",
   "description": "React Intercom integration without the hassle, driven by hooks.",
-  "homepage": "https://github.com/devrnt/react-use-intercom#readme",
+  "homepage": "https://github.com/vinyldarkscratch/react-intercom-hook#readme",
   "version": "0.1.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/devrnt/react-use-intercom"
+    "url": "https://github.com/vinyldarkscratch/react-intercom-hook"
   },
   "bugs": {
-    "url": "https://github.com/devrnt/react-use-intercom/issues"
+    "url": "https://github.com/vinyldarkscratch/react-intercom-hook/issues"
   },
   "files": [
     "dist",
@@ -30,7 +30,7 @@
     "intercom-react",
     "typescript",
     "react-hooks",
-    "react-use-intercom"
+    "react-intercom-hook"
   ],
   "scripts": {
     "start": "tsdx watch",
@@ -57,7 +57,7 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/react-use-intercom.cjs.production.min.js",
+      "path": "./dist/react-intercom-hook.cjs.production.min.js",
       "maxSize": "3 kB"
     }
   ],

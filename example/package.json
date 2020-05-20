@@ -1,13 +1,13 @@
 {
-  "name": "react-use-intercom-example-playground",
+  "name": "react-intercom-hook-example-playground",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "homepage": "https://devrnt.github.io/react-use-intercom/",
+  "homepage": "https://vinyldarkscratch.github.io/react-intercom-hook/",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url /react-use-intercom/"
+    "build": "parcel build index.html --public-url /react-intercom-hook/"
   },
   "dependencies": {
     "react-app-polyfill": "^1.0.0",
