@@ -42,10 +42,10 @@ const HomePage = () => {
 ```
 
 ## Links
-* [API](#intercom)
-* [Playground](#playground)
-* [TypeScript](#typescript)
-* [Advanced](#advanced)
+
+- [API](#intercom)
+- [Playground](#playground)
+- [Advanced](#advanced)
 
 ## API
 * [IntercomProvider](#intercomprovider)
@@ -187,11 +187,6 @@ Example playground to showcase the functionalities of `react-use-intercom`.
 ### useIntercom (with Intercom tour)
 [https://devrnt.github.io/react-use-intercom/#/useIntercomTour](https://devrnt.github.io/react-use-intercom/#/useIntercomTour)
 
-## TypeScript
-All the possible pre-defined options to pass to the Intercom instance are typed. So whenever you have to pass [IntercomProps](src/types.ts), all the possible properties will be available out of the box.
-These props are `JavaScript` 'friendly', so [camelCase](https://en.wikipedia.org/wiki/Camel_case). No need to pass the props with [snake_cased](https://en.wikipedia.org/wiki/Snake_case) keys.
-
-**Remark** - if you want to pass custom properties, you should still use [snake_cased](https://en.wikipedia.org/wiki/Snake_case) keys.
 
 
 ## Advanced

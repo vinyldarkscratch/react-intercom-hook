@@ -5,9 +5,8 @@ import initialize from './initialize';
 import IntercomContext from './context';
 import { IntercomContextValues, IntercomProviderProps } from './contextTypes';
 import { IntercomAPI } from './intercom';
-import { IntercomProps, RawIntercomBootProps } from './types';
-import { mapIntercomPropsToRawIntercomProps } from './mappers';
-import { isEmptyObject } from './utils';
+import { IntercomProps, IntercomBootProps } from './types';
+import { removeUndefined, isEmptyObject } from './utils';
 
 export const IntercomProvider = ({
   appId,
@@ -65,9 +64,9 @@ export const IntercomProvider = ({
     (props?: IntercomProps) => {
       if (isBooted) return;
 
-      const metaData: RawIntercomBootProps = {
+      const metaData: IntercomBootProps = {
         app_id: appId,
-        ...(props && mapIntercomPropsToRawIntercomProps(props)),
+        ...(props && removeUndefined(props)),
       };
 
       window.intercomSettings = metaData;
@@ -107,7 +106,7 @@ export const IntercomProvider = ({
           refresh();
           return;
         }
-        const rawProps = mapIntercomPropsToRawIntercomProps(props);
+        const rawProps = removeUndefined(props);
         window.intercomSettings = { ...window.intercomSettings, ...rawProps };
         IntercomAPI('update', rawProps);
       });
