@@ -2,7 +2,7 @@
   "name": "react-intercom-hook",
   "author": "vinyldarkscratch",
   "module": "dist/react-intercom-hook.esm.js",
-  "description": "React Intercom integration without the hassle, driven by hooks.",
+  "description": "A brand new hassle-free React Intercom integration powered by hooks.",
   "homepage": "https://github.com/vinyldarkscratch/react-intercom-hook#readme",
   "version": "0.1.2",
   "license": "MIT",

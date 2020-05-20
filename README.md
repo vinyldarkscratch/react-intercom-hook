@@ -4,7 +4,7 @@
 <img alt="version" src="https://img.shields.io/npm/v/react-intercom-hook.svg" />
 <img alt="minzipped size" src="https://badgen.net/bundlephobia/minzip/react-intercom-hook">
 
-A brand new React [Intercom](https://www.intercom.com/) integration powered by hooks.
+A brand new hassle-free React [Intercom](https://www.intercom.com/) integration powered by hooks.
 
 ## Copyright/Variations
 
