@@ -8,12 +8,6 @@
 
 A brand new hassle-free React [Intercom](https://www.intercom.com/) integration powered by hooks.
 
-## Copyright/Variations
-
-This package was forked from [devrnt](https://github.com/devrnt)'s [react-use-intercom](https://github.com/devrnt/react-use-intercom). One of the key differences between this package and the original is snake casing vs. camel casing of Intercom props.
-
-In `react-use-intercom`, all of Intercom's non-custom variables are expected to be passed in as camel-cased format. However, as Intercom expects snake-casing instead (and due to the lack of documentation indicating the camel-casing requirement), this led to various issues caused by the mapping between the two casing styles, namely disallowing snake-casing entirely and removing custom variables. Due to the lack of maintainer support, I decided to fork it as a new package.
-
 ## Features
 
 - Built for the latest React
@@ -277,3 +271,9 @@ const HomePage = () => {
   return <button onClick={bootWithProps}>Boot with props</button>;
 };
 ```
+
+## Copyright/Variations
+
+This package was forked from [devrnt](https://github.com/devrnt)'s [react-use-intercom](https://github.com/devrnt/react-use-intercom). One of the key differences between this package and the original is snake casing vs. camel casing of Intercom props.
+
+In `react-use-intercom`, all of Intercom's non-custom variables are expected to be passed in as camel-cased format. However, as Intercom expects snake-casing instead (and due to the lack of documentation indicating the camel-casing requirement), this led to various issues caused by the mapping between the two casing styles, namely disallowing snake-casing entirely and removing custom variables. Due to the lack of maintainer support, I decided to fork it as a new package.
