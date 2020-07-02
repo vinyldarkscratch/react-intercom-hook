@@ -1,7 +1,7 @@
 # react-intercom-hook
 
 ![CI](https://github.com/vinyldarkscratch/react-intercom-hook/workflows/CI/badge.svg?branch=master)
-![version](https://img.shields.io/npm/v/react-intercom-hook.svg)
+[![version](https://img.shields.io/npm/v/react-intercom-hook.svg)](https://www.npmjs.com/package/react-intercom-hook)
 ![downloads](https://badgen.net/npm/dt/react-use-intercom)
 ![minzipped size](https://badgen.net/bundlephobia/minzip/react-intercom-hook)
 [![Known Vulnerabilities](https://snyk.io/test/github/vinyldarkscratch/react-intercom-hook/badge.svg)](https://snyk.io/test/github/vinyldarkscratch/react-intercom-hook)
