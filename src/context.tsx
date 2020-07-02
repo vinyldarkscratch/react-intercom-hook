@@ -1,3 +1,5 @@
+import { createContext } from 'react';
+
 import * as logger from './logger';
 import { IntercomContextValues } from './contextTypes';
 
