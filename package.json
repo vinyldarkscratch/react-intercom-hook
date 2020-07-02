@@ -4,7 +4,7 @@
   "module": "dist/react-intercom-hook.esm.js",
   "description": "A brand new hassle-free React Intercom integration powered by hooks.",
   "homepage": "https://github.com/vinyldarkscratch/react-intercom-hook#readme",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -48,7 +48,8 @@
     "release": "np"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "husky": {
     "hooks": {
@@ -68,17 +69,17 @@
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
     "bundlesize": "^0.18.0",
-    "cypress": "^4.5.0",
+    "cypress": "4.9.0",
     "dotenv": "^8.2.0",
     "husky": "^4.2.5",
     "jsdom": "^16.2.2",
-    "np": "^6.2.3",
+    "np": "^6.2.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.2"
+    "typescript": "^3.9.5"
   },
   "resolutions": {
     "**/**/yargs-parser": "^13.1.2"

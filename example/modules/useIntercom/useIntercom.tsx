@@ -34,17 +34,78 @@ const RawUseIntercomPage = () => {
     showMessages,
     showNewMessages,
     getVisitorId,
-    startTour,
     trackEvent,
   } = useIntercom();
-
   const handleBoot = React.useCallback(() => boot(), [boot]);
 
-  const handleBootWithProps = React.useCallback(() => boot({ name: 'Russo' }), [
+  const handleSeededBoot = React.useCallback(() => boot({ name: 'Russo' }), [
     boot,
   ]);
 
+  const handleExtendedSeededBoot = React.useCallback(
+    () =>
+      boot({
+        name: 'Russo',
+        action_color: 'red',
+        email: 'russo@email.com',
+        utm_content: 'content',
+        vertical_padding: 10,
+        alignment: 'left',
+        avatar: {
+          type: 'image',
+          image_url: 'https://github.com/devrnt/react-use-intercom',
+        },
+        company: {
+          company_id: 'company',
+          created_at: 'now',
+          industry: 'industry',
+          monthly_spend: 10,
+          name: 'name',
+          plan: 'plan',
+          size: 12,
+          user_count: 100,
+          website: 'https://github.com/devrnt/react-use-intercom',
+        },
+        companies: [
+          {
+            company_id: 'company',
+            created_at: 'now',
+            industry: 'industry',
+            monthly_spend: 10,
+            name: 'name',
+            plan: 'plan',
+            size: 12,
+            user_count: 100,
+            website: 'https://github.com/devrnt/react-use-intercom',
+          },
+        ],
+        background_color: 'green',
+        created_at: 'now',
+        custom_launcher_selector: '.id',
+        hide_default_launcher: false,
+        horizontal_padding: 10,
+        language_override: 'en',
+        phone: '0470',
+        session_duration: 1000,
+        unsubscribed_from_emails: false,
+        user_hash: '123',
+        last_request_at: 'now',
+        utm_campaign: 'campaign',
+        utm_source: 'source',
+        utm_medium: 'medium',
+        utm_term: 'term',
+        user_id: '12345',
+          my_custom_attribute: 'custom_attribute_value',
+          my_second_custom_attribute: 'second_custom_attribute_value',
+      }),
+    [boot],
+  );
+
   const handleUpdate = React.useCallback(() => {
+    update();
+  }, [update]);
+
+  const handleSeededUpdate = React.useCallback(() => {
     update({ name: 'ponas' });
   }, [update]);
 
@@ -88,7 +149,17 @@ const RawUseIntercomPage = () => {
         <Button
           label="Boot props"
           data-cy="boot-seeded"
-          onClick={handleBootWithProps}
+          onClick={handleSeededBoot}
+        />
+      </Item>
+      <Item>
+        <p>
+          boots the Intercom instance with given extended <code>props</code>
+        </p>
+        <Button
+          label="Boot extended props"
+          data-cy="boot-extended-seeded"
+          onClick={handleExtendedSeededBoot}
         />
       </Item>
       <Item>
@@ -109,7 +180,7 @@ const RawUseIntercomPage = () => {
       </Item>
       <Item>
         <p>Initiates a 'ping'</p>
-        <Button label="Update" data-cy="update" onClick={update} />
+        <Button label="Update" data-cy="update" onClick={handleUpdate} />
       </Item>
       <Item>
         <p>
@@ -118,7 +189,7 @@ const RawUseIntercomPage = () => {
         <Button
           label="Update with props"
           data-cy="update-seeded"
-          onClick={handleUpdate}
+          onClick={handleSeededUpdate}
         />
       </Item>
       <Item>

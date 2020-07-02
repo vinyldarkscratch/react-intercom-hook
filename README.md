@@ -2,7 +2,9 @@
 
 ![CI](https://github.com/vinyldarkscratch/react-intercom-hook/workflows/CI/badge.svg?branch=master)
 ![version](https://img.shields.io/npm/v/react-intercom-hook.svg)
+![downloads](https://badgen.net/npm/dt/react-use-intercom)
 ![minzipped size](https://badgen.net/bundlephobia/minzip/react-intercom-hook)
+[![Known Vulnerabilities](https://snyk.io/test/github/vinyldarkscratch/react-intercom-hook/badge.svg)](https://snyk.io/test/github/vinyldarkscratch/react-intercom-hook)
 
 A brand new hassle-free React [Intercom](https://www.intercom.com/) integration powered by hooks.
 
@@ -61,6 +63,7 @@ const HomePage = () => {
 
 - [API](#intercom)
 - [Playground](#playground)
+- [Troubleshoot](#troubleshoot)
 - [Advanced](#advanced)
 
 ## API
@@ -71,6 +74,8 @@ const HomePage = () => {
 ### IntercomProvider
 
 `IntercomProvider` is used to initialize the `window.Intercom` instance. It makes sure the initialization is only done once. If any listeners are passed, the `IntercomProvider` will make sure these are attached.
+
+Place the `IntercomProvider` as high as possible in your application. This will make sure you can `useIntercom()` anywhere.
 
 #### Props
 
@@ -87,14 +92,13 @@ const HomePage = () => {
 
 ```javascript
 const App = () => {
-  const [unreadMessagesCount, unreadMessagesCount] = React.useState(0);
+  const [unreadMessagesCount, setUnreadMessagesCount] = React.useState(0);
 
   const onHide = () => console.log('Intercom did hide the Messenger');
   const onShow = () => console.log('Intercom did show the Messenger');
   const onUnreadCountChange = (amount: number) => {
     console.log('Intercom has a new unread message');
-    unreadMessagesCount(amount);
-    console.log('New amount of unread messages: ', unreadMessagesCount);
+    setUnreadMessagesCount(amount);
   };
 
   return (
@@ -115,7 +119,9 @@ const App = () => {
 
 Used to retrieve all methods bundled with Intercom. These are based on the official [Intercom docs](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects). Some extra methods were added to improve convenience.
 
-**Remark** - make sure `IntercomProvider` is wrapped around your component when calling `useIntercom()`
+Make sure `IntercomProvider` is wrapped around your component when calling `useIntercom()`.
+
+**Remark** - You can't use `useIntercom()` in the same component where `IntercomProvider` is initialized.
 
 #### Methods
 
@@ -202,12 +208,32 @@ const HomePage = () => {
 };
 ```
 
+#### Custom attributes
+
+Still want to pass custom attributes to Intercom? Whether `boot` or `update` is used, you can add your custom properties by passing them alongside your other properties. They are rawly passed to Intercom.
+
+```javascript
+const { boot } = useIntercom();
+
+boot({
+  name: 'Russo',
+  custom_attribute_key: 'hi there',
+});
+```
+
 ## Playground
 
 Example playground to showcase the functionalities of `react-intercom-hook`.
 
 [useIntercom](https://vinyldarkscratch.github.io/react-intercom-hook/#/useIntercom)
 [useIntercom (with Intercom tour)](https://vinyldarkscratch.github.io/react-intercom-hook/#/useIntercomTour)
+
+## Troubleshoot
+
+- I'm seeing "Please wrap your component with IntercomProvider." in the console.
+  > Make sure `IntercomProvider` is initialized before calling `useIntercom()`. You only need to initialize `IntercomProvider` once. It is advised to initialize `IntercomProvider` as high as possible in your application tree.
+
+> Make sure you aren't calling `useIntercom()` in the same component where you initialized `IntercomProvider`.
 
 ## Advanced
 
